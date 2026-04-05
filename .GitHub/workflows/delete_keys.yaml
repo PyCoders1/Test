@@ -1,0 +1,24 @@
+name: Auto Delete Subscription
+on:
+  schedule:
+    - cron: '0 20 5 4 *' 
+  workflow_dispatch:
+
+jobs:
+  clear-sub:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Clear sub.txt
+        run: |
+          echo "# Срок действия подписки истек." > sub.txt
+      - name: Commit and Push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add sub.txt
+          git commit -m "Expired"
+          git push
