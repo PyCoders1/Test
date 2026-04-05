@@ -1,0 +1,5 @@
+#profile-title: Tung VPN
+#subscription-userinfo: upload=0; download=0; total=107374182400; expire=1775419200
+
+vless://00000000-0000-0000-0000-000000000000@0.0.0.0:443?type=tcp#Остаток_трафика_100ГБ
+vless://uuid@ip:port?security=reality&sni=google.com#Рабочий_Сервер
